@@ -5,6 +5,7 @@ import { StoreModule, Store } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
+import { UsersModule } from "./users/users.module";
 
 export const routes: Routes = [
   {
@@ -19,7 +20,8 @@ export const routes: Routes = [
     BrowserModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
