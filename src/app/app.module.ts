@@ -1,18 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
+import { StoreModule, Store } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { MenuComponent } from "./menu/menu.component";
+import { Routes, RouterModule } from "@angular/router";
 
-
-import { AppComponent } from './app.component';
-
+export const routes: Routes = [
+  {
+    path: "",
+    component: MenuComponent
+  }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, MenuComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(store: Store<any>) {
+    store.select(s => s).subscribe(console.log.bind(console));
+  }
+}
