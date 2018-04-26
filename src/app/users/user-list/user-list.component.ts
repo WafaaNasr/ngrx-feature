@@ -1,4 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { User } from "../users-store/models/user";
+import { Store } from "@ngrx/store";
+import { UsersState } from "../users-store/users-store.reducers";
+import * as fromUsers from "../users.store";
 
 @Component({
   selector: "app-user-list",
@@ -6,7 +11,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./user-list.component.scss"]
 })
 export class UserListComponent implements OnInit {
-  constructor() {}
+  users$: Observable<Array<User>>;
+
+  constructor(public store: Store<UsersState>) {
+    this.users$ = this.store.select(fromUsers.getUsersEntities);
+    // The selector from users.store, NOT from the reducer itself.
+  }
 
   ngOnInit() {}
 }

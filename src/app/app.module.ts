@@ -11,6 +11,11 @@ export const routes: Routes = [
   {
     path: "",
     component: MenuComponent
+  },
+  {
+    path: "users",
+    // loadChildren: "./users/users.module#UsersModule" => Works also
+    loadChildren: () => UsersModule
   }
 ];
 
@@ -20,8 +25,7 @@ export const routes: Routes = [
     BrowserModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    RouterModule.forRoot(routes),
-    UsersModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

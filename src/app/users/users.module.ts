@@ -11,7 +11,7 @@ import { UsersStoreEffects } from "./users-store/users-store.effects";
 
 export const routes: Routes = [
   {
-    path: "users",
+    path: "",
     component: UserListComponent,
     canActivate: [UserListGuard]
   }

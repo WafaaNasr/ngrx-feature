@@ -24,5 +24,5 @@ constructor(private actions$: Actions, private http: HttpClient) {}
   ofType(usersActions.LOAD_USERS)
   .switchMap(() => this.http.get<{ info: any, results: User[] }>
   ("https://randomuser.me/api/?results=10&seed=abc")
-  .map(res => new usersActions.LoadUsersComplete(res.results));
+  .map(res => new usersActions.LoadUsersComplete(res.results)));
 }
