@@ -6,6 +6,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { MenuComponent } from "./menu/menu.component";
 import { Routes, RouterModule } from "@angular/router";
 import { UsersModule } from "./users/users.module";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 export const routes: Routes = [
   {
@@ -25,7 +26,8 @@ export const routes: Routes = [
     BrowserModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent]
