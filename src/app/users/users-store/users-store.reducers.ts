@@ -22,13 +22,15 @@ export function usersReducer(
 
     case UsersActions.LOAD_USERS_COMPLETE: {
       return {
-          ...state,
-          users: action.users, // these are the users returned from the data-source
-          loading: false
+        ...state,
+        users: action.users, // these are the users returned from the data-source
+        loading: false
       };
-  }
+    }
 
     default:
       return state;
   }
 }
+
+export const getUserEntities = (state: UsersState) => state.users;
